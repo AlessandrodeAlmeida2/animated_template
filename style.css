@@ -1,0 +1,214 @@
+/* Estilos para a seção de Testimonial */
+.stars {
+    color: #f59e0b;
+    font-size: 24px;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+  }
+  
+  .reviewer-stars {
+    color: #f59e0b;
+    font-size: 16px;
+    letter-spacing: 2px;
+    margin: 5px 0;
+  }
+  
+  .review-count {
+    color: #6b7280;
+    font-size: 14px;
+    margin-bottom: 30px;
+  }
+  
+  /* Ajuste para forçar os items para display horizontal */
+  .flex.flex-wrap {
+    display: flex;
+    justify-content: center;
+  }
+  
+  /* Ajustar tamanhos para telas diferentes */
+  @media (min-width: 768px) {
+    .w-full.md\:w-6\/12.lg\:w-3\/12 {
+      width: 33.333333%;
+      flex: 0 0 33.333333%;
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .w-full.md\:w-6\/12.lg\:w-3\/12 {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+    
+    .flex.flex-wrap {
+      flex-direction: column;
+    }
+  }
+  
+  /* Estilização dos cards */
+  .px-6 {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    height: 100%;
+    transition: transform 0.3s ease;
+  }
+  
+  .px-6:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  }
+  
+  .pt-6.text-center {
+    padding: 20px;
+  }
+  
+  .text-xl.font-bold {
+    margin-bottom: 5px;
+    color: #1f2937;
+  }
+  
+  .mt-1.text-sm.text-gray-500 {
+    font-style: italic;
+    line-height: 1.5;
+    margin: 10px 0;
+    min-height: 80px;
+  }
+  
+  .review-link {
+    display: inline-block;
+    color: #60a5fa;
+    font-size: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 5px 0;
+    margin-top: 10px;
+    position: relative;
+    transition: color 0.3s ease;
+  }
+  
+  .review-link:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #60a5fa;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease;
+  }
+  
+  .review-link:hover {
+    color: #3b82f6;
+  }
+  
+  .review-link:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+  
+  /* Estilos para a seção de Contact */
+  .container.cta-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 20px;
+    color: white;
+    text-align: center;
+  }
+  
+  .cta-content h2 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  
+  .cta-content h3 {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 20px;
+  }
+  
+  .cta-content p {
+    font-size: 18px;
+    max-width: 800px;
+    margin: 0 auto 40px;
+    color: #e5e7eb;
+  }
+  
+  .btn {
+    display: inline-block;
+    background-color: #f59e0b;
+    color: white;
+    font-weight: bold;
+    padding: 15px 30px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin-bottom: 50px;
+  }
+  
+  .btn:hover {
+    background-color: #d97706;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+  
+  .contact-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 50px;
+  }
+  
+  .contact-item {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 25px;
+    width: 300px;
+    transition: transform 0.3s ease;
+  }
+  
+  .contact-item:hover {
+    transform: translateY(-5px);
+  }
+  
+  .contact-icon {
+    font-size: 32px;
+    margin-bottom: 15px;
+  }
+  
+  .contact-item h4 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 15px;
+  }
+  
+  .contact-item p {
+    font-size: 16px;
+    margin: 5px 0;
+    color: #e5e7eb;
+  }
+  
+  /* Media queries para responsividade */
+  @media (max-width: 768px) {
+    .contact-info {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .contact-item {
+      width: 100%;
+      max-width: 350px;
+    }
+    
+    .cta-content h2 {
+      font-size: 30px;
+    }
+    
+    .cta-content h3 {
+      font-size: 20px;
+    }
+  }
+  
