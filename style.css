@@ -1,3 +1,7 @@
+.relative-container {
+  min-height: 55vh;
+}
+
 /* Estilos para a seção de Testimonial */
 .stars {
     color: #f59e0b;
@@ -193,6 +197,10 @@
   
   /* Media queries para responsividade */
   @media (max-width: 768px) {
+    .relative-container {
+      min-height: 70vh; /* Slightly smaller on medium screens */
+    }
+
     .contact-info {
       flex-direction: column;
       align-items: center;
@@ -212,3 +220,30 @@
     }
   }
   
+  /* Add these responsive styles to your style.css file */
+
+/* Responsive height for splash page */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .relative-container {
+    min-height: 400px; /* Slightly smaller on medium screens */
+  }
+  
+  /* Adjust vertical spacing for cards on medium screens */
+  .lg\:pt-12.pt-6.w-full.md\:w-4\/12.px-4.text-center {
+    padding-top: 2rem;
+  }
+}
+
+/* Fix for the cards section on medium screens */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .flex.flex-wrap {
+    margin-top: 1rem;
+  }
+}
+
+/* Ensure proper spacing in about section for medium screens */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .relative.py-20 {
+    padding-top: 4rem;
+  }
+}
