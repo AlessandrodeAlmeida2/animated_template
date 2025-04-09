@@ -22,45 +22,56 @@
 </head>
 <body class="text-gray-800 antialiased">
 
-  <!-- Navigation -->
-  <nav class="top-0 absolute z-50 w-full flex flex-wrap items-center justify-between px-2 py-3 navbar-expand-lg">
-      <div class="container px-4 mx-auto flex flex-wrap items-center justify-between">
-        <!-- Nav Left Side -->
-          <div class="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
-              <!-- Hamburger Menu (Mobile) -->
-              <button class="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none" type="button" onclick="toggleNavbar('example-collapse-navbar')">
-                <!-- Icon -->
-                <i class="text-white fas fa-bars"></i>
-              </button>
-          </div>
-        <!-- Nav Right Side -->
-        <ul class="flex flex-col lg:flex-row list-none lg:ml-auto">
-          <!-- Social Media Button -->
-          <li class="flex items-center">
-            <a class="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-              href="#">
-              
-              <span class="lg:hidden inline-block ml-2">Sobre</span>
-            </a>
-          </li>
-          <!-- Social Media Button -->
-          <li class="flex items-center">
-            <a class="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-              href="#">
-              <span class="lg:hidden inline-block ml-2">Serviços</span>
-            </a>
-          </li>
-          <!-- Social Media Button -->
-          <li class="flex items-center">
-            <a class="lg:text-white lg:hover:text-gray-300 text-gray-800 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-              href="#">
-              <span class="lg:hidden inline-block ml-2">Contato</span>
-            </a>
-          </li>
+  <div id="overlay" class="overlay" onclick="closeMenu()"></div>
+  
+  <!-- Navbar Simples -->
+  <nav class="absolute top-0 left-0 w-full px-4 py-3 z-50">
+    <div class="max-w-6xl mx-auto flex justify-between items-center">
+      <!-- Logo -->
+      <a href="#" class="text-white text-lg font-bold"></a>
+      
+      <!-- Menu Desktop -->
+      <div class="hidden lg:block">
+        <ul class="flex items-center desktop-menu">
+          <li><a href="#sobre" class="text-white hover:text-gray-300 text-sm font-medium px-4 py-2">Sobre</a></li>
+          <li><a href="#services" class="text-white hover:text-gray-300 text-sm font-medium px-4 py-2">Serviços</a></li>
+          <li><a href="#contato" class="text-white hover:text-gray-300 text-sm font-medium px-4 py-2">Contato</a></li>
         </ul>
       </div>
+      
+      <!-- Botão do Menu -->
+      <button class="text-white lg:hidden focus:outline-none" onclick="openMenu()">
+        <i class="fas fa-bars text-xl"></i>
+      </button>
     </div>
   </nav>
+  
+  <!-- Menu Mobile (separado) -->
+  <div id="mobileMenu" class="mobile-menu bg-white shadow-lg">
+    <div class="p-4 flex justify-end">
+      <button onclick="closeMenu()" class="text-gray-800">
+        <i class="fas fa-times text-xl"></i>
+      </button>
+    </div>
+    
+    <ul class="mt-6">
+      <li class="py-2">
+        <a href="#sobre" class="block text-center py-2 px-6 text-gray-800 font-medium" onclick="closeMenu()">
+          Sobre
+        </a>
+      </li>
+      <li class="py-2">
+        <a href="#services" class="block text-center py-2 px-6 text-gray-800 font-medium" onclick="closeMenu()">
+          Serviços
+        </a>
+      </li>
+      <li class="py-2">
+        <a href="#contato" class="block text-center py-2 px-6 text-gray-800 font-medium" onclick="closeMenu()">
+          Contato
+        </a>
+      </li>
+    </ul>
+  </div>
   <!-- End of Navigation -->
 
   <!-- Splash Page -->
@@ -169,7 +180,7 @@
         <!-- Text Box and Card Container -->
         <div class="flex flex-wrap items-center mt-32">
           <!-- Text Box Container -->
-          <div class="w-full md:w-5/12 px-4 mr-auto ml-auto" data-aos="zoom-in-right">
+          <div id="sobre" class="w-full md:w-5/12 px-4 mr-auto ml-auto" data-aos="zoom-in-right">
             <!-- Text Box -->
             <div class="text-gray-600 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-gray-100">
               <!-- Icon -->
@@ -178,18 +189,25 @@
             <h3 class="text-3xl mb-2 font-semibold leading-normal">
               Tradição
             </h3>
-            <p class="text-lg font-light leading-relaxed mt-4 mb-4 text-gray-700">
-              Nossa empresa de táxi nasceu do sonho de uma família pinhalense de oferecer um serviço de transporte de qualidade para nossa amada cidade.
-
-              Ao longo de duas décadas, construímos uma reputação baseada em:
-
-              Pontualidade e confiança
-              Conhecimento profundo de Espírito Santo do Pinhal e região
-              Motoristas experientes e treinados
-              Veículos bem conservados e higienizados
-              Atendimento personalizado e cordial
-              Temos orgulho de fazer parte da história de Pinhal e de proporcionar experiências de viagem memoráveis para moradores e turistas.
-            </p>
+            <div class="text-lg font-light leading-relaxed mt-4 mb-4 text-gray-700">
+              <p>
+                Nossa empresa de táxi nasceu do sonho de uma família pinhalense de
+                oferecer um serviço de transporte de qualidade para nossa amada
+                cidade.
+              </p>
+              <p>Ao longo de duas décadas, construímos uma reputação baseada em:</p>
+              <ul class="list-disc list-inside" style="margin-top: 10px">
+                <li>Pontualidade e confiança</li>
+                <li>Conhecimento profundo de Espírito Santo do Pinhal e região</li>
+                <li>Motoristas experientes e treinados</li>
+                <li>Veículos bem conservados e higienizados</li>
+                <li>Atendimento personalizado e cordial</li>
+              </ul>
+              <p style="margin-top: 20px">
+                Temos orgulho de fazer parte da história de Pinhal e de proporcionar
+                experiências de viagem memoráveis para moradores e turistas.
+              </p>
+            </div>
           </div>
 
           <!-- Image Cap & Text Card -->
@@ -264,7 +282,7 @@
             />
           </div>
           <!-- Text Box Container-->
-          <div class="w-full md:w-5/12 ml-auto mr-auto px-4" data-aos="zoom-in-left">
+          <div id="services" class="w-full md:w-5/12 ml-auto mr-auto px-4" data-aos="zoom-in-left">
             <div class="md:pr-12">
               <div class="text-pink-600 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-pink-300">
                 <!-- Icon -->
@@ -283,7 +301,7 @@
                     <div>
                       <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-pink-600 bg-pink-200 mr-3">
                         <!-- Icon -->
-                        <i class="fas fa-fingerprint"></i>
+                        <i class="fa fa-leaf"></i>
                       </span>
                     </div>
                     <div>
@@ -298,7 +316,7 @@
                     <div>
                       <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-pink-600 bg-pink-200 mr-3">
                         <!-- Icon -->
-                        <i class="fab fa-html5"></i>
+                        <i class="fa fa-coffee"></i>
                       </span>
                     </div>
                     <div>
@@ -311,7 +329,7 @@
                     <div>
                       <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-pink-600 bg-pink-200 mr-3">
                         <!-- Icon -->
-                        <i class="far fa-paper-plane"></i>
+                        <i class="fa fa-taxi"></i>
                       </span>
                     </div>
                     <div>
@@ -324,7 +342,7 @@
                     <div>
                       <span class="text-xs font-semibold inline-block py-1 px-2 uppercase rounded-full text-pink-600 bg-pink-200 mr-3">
                         <!-- Icon -->
-                        <i class="fab fa-html5"></i>
+                        <i class="fa fa-road"></i>
                       </span>
                     </div>
                     <div>
@@ -424,7 +442,7 @@
     <!-- End of Testimonial Section -->
 
     <!-- Contact Section -->
-    <section class="pb-20 relative block bg-gray-900">
+    <section id="contato" class="pb-20 relative block bg-gray-900">
       <div class="container cta-content">
         <h2>Solicite seu táxi</h2>
         <h3>Estamos prontos para atender você!</h3>
@@ -490,16 +508,16 @@
       <!-- Text Box Container -->
       <div class="flex flex-wrap">
         <div class="w-full lg:w-6/12 px-4">
-          <h4 class="text-3xl font-semibold">Taxi familiar Pinhalense</h4>
+          <h4 class="text-3xl font-semibold">Táxi familiar Pinhalense</h4>
           <h5 class="text-lg mt-0 mb-2 text-gray-700">
             Encontre-no nessas plataformas.
           </h5>
           <!-- Social Media Buttons -->
           <div class="mt-6">
-            <a href="https://www.twitter.com/creativetim" target="_blank"><i class="fab fa-twitter  bg-white text-blue-400 shadow-lg font-lg p-3 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 inline-block text-center"></i></a>
-            <a href="https://www.facebook.com/creativetim" target="_blank"><i class="fab fa-facebook-square bg-white text-blue-600 shadow-lg font-lg p-3 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 inline-block text-center"></i></a>
-            <a href="https://www.dribbble.com/creativetim" target="_blank"><i class="fab fa-dribbble bg-white text-pink-400 shadow-lg font-lg p-3 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 inline-block text-center"></i></a>
-            <a href="https://www.github.com/creativetimofficial" target="_blank"><i class="fab fa-github bg-white text-gray-900 shadow-lg font-lg p-3 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 inline-block text-center"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-twitter  bg-white text-blue-400 shadow-lg font-lg p-3 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 inline-block text-center"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-facebook-square bg-white text-blue-600 shadow-lg font-lg p-3 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 inline-block text-center"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-dribbble bg-white text-pink-400 shadow-lg font-lg p-3 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 inline-block text-center"></i></a>
+            <a href="#" target="_blank"><i class="fab fa-github bg-white text-gray-900 shadow-lg font-lg p-3 items-center justify-center align-center rounded-full outline-none focus:outline-none mr-2 inline-block text-center"></i></a>
           </div>
         </div>
       <!-- List Container -->
@@ -511,25 +529,17 @@
               <ul class="list-unstyled">
                 <li>
                   <a class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
-                     href="https://www.creative-tim.com/presentation">About Us</a>
+                     href="#">About Us</a>
                 </li>
                 <li>
                   <a class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
-                     href="https://blog.creative-tim.com">Blog</a>
-                </li>
-                <li>
-                  <a class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
-                     href="https://www.github.com/creativetimofficial">Github</a>
-                </li>
-                <li>
-                  <a class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
-                     href="https://www.creative-tim.com/bootstrap-themes/free">Free Products</a>
+                     href="#">Github</a>
                 </li>
               </ul>
             </div>
             <!-- List 2 -->
             <div class="w-full lg:w-4/12 px-4">
-              <span class="block uppercase text-gray-600 text-sm font-semibold mb-2">Other Resources</span>
+              <span class="block uppercase text-gray-600 text-sm font-semibold mb-2">Outros Recursos</span>
               <ul class="list-unstyled">
                 <li>
                   <a class="text-gray-700 hover:text-gray-900 font-semibold block pb-2 text-sm"
@@ -547,7 +557,7 @@
                   <a
                     href="https://wa.me/5519991944137?text=Olá,%20gostaria%20de%20solicitar%20um%20táxi!"
                     target="_blank"
-                    >Contact us</a
+                    >Contato</a
                   >
                 </li>
               </ul>
@@ -569,6 +579,21 @@
     </div>
   </footer>
   <!-- End of Footer Section -->
-</body>
 
+  <script>
+    // Funções para controlar o menu
+    function openMenu() {
+      document.getElementById('mobileMenu').classList.add('active');
+      document.getElementById('overlay').classList.add('active');
+      document.body.style.overflow = 'hidden'; // Impede scroll do body
+    }
+    
+    function closeMenu() {
+      document.getElementById('mobileMenu').classList.remove('active');
+      document.getElementById('overlay').classList.remove('active');
+      document.body.style.overflow = ''; // Restaura scroll do body
+    }
+  </script>
+
+</body>
 </html>
